@@ -12,13 +12,11 @@ function Profile() {
             navigate("/login");
         }
     });
-    
-    const [user, setUser] = useState(state.data);
 
     return (
         <>
             <h1>Profile</h1>
-            {JSON.stringify(user)}        
+            {JSON.stringify(state.data)}
         </>
     )
 }
