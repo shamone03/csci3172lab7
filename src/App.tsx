@@ -1,38 +1,40 @@
-import { useContext, useEffect, useState } from "react";
-import { LocationContext } from "./LocationContext";
+import Dashboard from "./components/client/Dashboard";
+import Login from "./components/client/Login";
+import Profile from "./components/client/Profile";
+import Router from "./components/routing/Router";
+import { loginAction } from "./controllers/login";
+import { profileLoader } from "./controllers/profile";
+import Outlet from "./components/routing/Outlet";
+import NavBar from "./components/client/NavBar";
+import { dashboardLoader } from "./controllers/dashboard";
 
 function App() {
 
-    const routes = useContext(LocationContext);
-    
-    const [currentLocation, setCurrentLocation] = useState(window.location.pathname);
-    useEffect(() => {
-        console.log(window.location.pathname);
-        const navigate = () => {
-            setCurrentLocation(window.location.pathname);
+    const routes: Route[] = [
+        {
+            route: /^(\/profile|\/)$/,
+            element: <Profile key={0} />,
+            loader: profileLoader
+        },
+        {
+            route: /^\/dashboard$/,
+            element: <Dashboard key={1} />,
+            loader: dashboardLoader
+        },
+        {
+            route: /\/^login$/,
+            element: <Login key={2} />,
+            action: loginAction
         }
-        window.addEventListener('popstate', navigate);
-        return () => window.removeEventListener('popstate', navigate);
-    }, []);
+    ]
 
-
-    const navigate = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, route: string) => {
-        e.preventDefault()
-        window.history.pushState({}, "", route);
-        setCurrentLocation(route);
-    }
 
     return (
         <div className="App">
-            <nav>
-                <ul>
-                    <li><a onClick={(e) => navigate(e, "/profile")} href="profile">Profile</a></li>
-                    <li><a onClick={(e) => navigate(e, "/dashboard")} href="dashboard">Dashboard</a></li>
-                </ul>
-            </nav>
-            <div>
-                {routes.filter(i => i.route.test(currentLocation)).map(i => i.element)}
-            </div>
+            <Router routes={routes} >
+                <NavBar />
+                <Outlet />
+            </Router>
         </div>
     );
 }

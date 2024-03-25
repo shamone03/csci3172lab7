@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { profileLoader } from "../controllers/profile";
-import { useLoaderData } from "../hooks/useLocationData";
+import { profileLoader } from "../../controllers/profile";
+import { useLoaderData } from "../../hooks/useLoaderData";
 
 function Profile() {
     const state = useLoaderData<ReturnType<typeof profileLoader>>();
 
-    const [count, setCount] = useState(state ?? 0);
+    const [count, setCount] = useState(state);
 
     return (
         <>
