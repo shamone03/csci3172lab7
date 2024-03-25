@@ -22,7 +22,7 @@ function App() {
             loader: dashboardLoader
         },
         {
-            route: /\/^login$/,
+            route: /^\/login$/,
             element: <Login key={2} />,
             action: loginAction
         }

@@ -6,9 +6,17 @@ function Outlet() {
 
     const routes = useContext(LocationDataContext);
     const { location } = useContext(LocationContext);
+    const current = routes.filter(i => i.route.test(location)).map(i => i.element);
+    if (current.length === 0) {
+        console.warn(`no matching element on route ${location}`);
+    }
+
+    if (current.length > 1) {
+        console.warn(`more than one element on route ${location}`);
+    }
     return (
         <>
-            {routes.filter(i => i.route.test(location)).map(i => i.element)}
+            {current}
         </>
     )
 }

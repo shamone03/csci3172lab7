@@ -12,6 +12,7 @@ function NavBar() {
             <ul>
                 <li><a href="/profile" onClick={e => handleClick(e, "/profile")}>Profile</a></li>
                 <li><a href="/dashboard" onClick={e => handleClick(e, "/dashboard")}>Dashboard</a></li>
+                <li><a href="/login" onClick={e => handleClick(e, "/login")}>Login</a></li>
             </ul>
         </nav>
     )
