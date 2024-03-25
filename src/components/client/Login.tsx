@@ -26,7 +26,7 @@ function Login() {
                 <label htmlFor="firstName">First Name</label>
                 <input type="text" name="lastName" id="lastName" />
                 <label htmlFor="lastName">Last Name</label>
-                <input type="email" name="email" id="email" />
+                <input name="email" id="email" />
                 <label htmlFor="email">Email</label>
                 <input type="password" name="password" id="password" />
                 <label htmlFor="password">Password</label>
