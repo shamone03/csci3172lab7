@@ -26,3 +26,5 @@ type Result<T> = {
     message: string,
     data: T
 }
+
+type UserInfo = { firstName: string, lastName: string, email: string, password?: string, season: "fall" | "winter" | "summer" };

@@ -6,7 +6,6 @@ import { loginAction } from "./controllers/login";
 import { profileLoader } from "./controllers/profile";
 import Outlet from "./components/routing/Outlet";
 import NavBar from "./components/client/NavBar";
-import { dashboardLoader } from "./controllers/dashboard";
 
 function App() {
 
@@ -19,7 +18,6 @@ function App() {
         {
             route: /^\/dashboard$/,
             element: <Dashboard key={1} />,
-            loader: dashboardLoader
         },
         {
             route: /^\/login$/,

@@ -36,8 +36,10 @@ function Login() {
                     <option value="summer">Summer</option>
                 </select>
                 <button type="submit" name="intent" value="submission">Submit</button>
-                <p>{error}</p>
             </form>
+            <div>
+                <p>{error}</p>
+            </div>
         </>
     )
 }

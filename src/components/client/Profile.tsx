@@ -1,16 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { profileLoader } from "../../controllers/profile";
 import { useLoaderData } from "../../hooks/useLoaderData";
+import { useNavigate } from "../../hooks/useNavigate";
 
 function Profile() {
     const state = useLoaderData<ReturnType<typeof profileLoader>>();
-
-    const [count, setCount] = useState(state);
+    console.log(state);
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!state.success) {
+            navigate("/login");
+        }
+    });
+    
+    const [user, setUser] = useState(state.data);
 
     return (
         <>
             <h1>Profile</h1>
-            <button onClick={() => setCount(i => i + 1)}>{count}</button>
+            {JSON.stringify(user)}        
         </>
     )
 }

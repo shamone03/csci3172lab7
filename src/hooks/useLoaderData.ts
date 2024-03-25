@@ -8,6 +8,7 @@ export function useLoaderData<T>(): T {
         throw new Error(`invalid location ${window.location.pathname} not found in routes`);
     }
     if (!location.loader) {
+        console.error(location);
         throw new Error(`${window.location.pathname} did not have loader`);
     }
     return location.loader()

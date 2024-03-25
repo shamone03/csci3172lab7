@@ -9,13 +9,11 @@ const passwordValidateUppercase = /[A-Z]+/;
 const passwordValidateLowercase = /[a-z]+/;
 const passwordValidateSpecial = /[^a-zA-Z0-9]+/
 
-type LoginInfo = { firstName: string, lastName: string, email: string, password: string, season: "fall" | "winter" | "summer" };
-
-function validate(data: LoginInfo) {
+function validate(data: UserInfo) {
     const firstName = data.firstName;
     const lastName = data.lastName;
     const email = data.email;
-    const password = data.password;
+    const password = data.password ?? "";
     console.log(firstName, lastName, email, password);
     if (!firstNameValidate.test(firstName.trim())) {
         return { success: false, message: "First Name input is wrong" };
@@ -30,12 +28,16 @@ function validate(data: LoginInfo) {
         passwordValidateLowercase.test(password) &&
         passwordValidateUppercase.test(password) &&
         passwordValidateSpecial.test(password))) {
-        return { success: false, message: "password input is wrong" };
+        return { success: false, message: "Password input is wrong" };
     }
     return { success: true, message: "Form Submitted Successfully" };
 }
 
-export const loginAction: ActionFunction<Result<LoginInfo>> = (req) => {
-    const data = Object.fromEntries(req) as LoginInfo;
+export const loginAction: ActionFunction<Result<UserInfo>> = (req) => {
+    const data = Object.fromEntries(req) as UserInfo;
+    localStorage.setItem("firstName", data.firstName);
+    localStorage.setItem("lastName", data.lastName);
+    localStorage.setItem("email", data.email);
+    localStorage.setItem("season", data.season);
     return { data, ...validate(data) };
 }
