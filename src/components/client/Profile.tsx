@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { profileLoader } from "../../controllers/profile";
 import { useLoaderData } from "../../hooks/useLoaderData";
 import { useNavigate } from "../../hooks/useNavigate";
