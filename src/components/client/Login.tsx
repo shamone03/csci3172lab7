@@ -39,7 +39,7 @@ function Login() {
                 <button type="submit" className="btn">Submit</button>
             </form>
             <div>
-                <p>{error}</p>
+                <p className="text-center">{error}</p>
             </div>
         </>
     )
