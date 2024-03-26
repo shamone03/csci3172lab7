@@ -20,7 +20,7 @@ function Login() {
 
     return (
         <>
-            <h1>Login</h1>
+            <h1 className="text-center">Login</h1>
             <form id="login-form" action="post" onSubmit={(e) => handleSubmit(e)} className="d-flex d-flex-col gap-1 align-items-center">
                 <label htmlFor="firstName">First Name</label>
                 <input type="text" name="firstName" id="firstName" />
