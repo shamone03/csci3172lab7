@@ -1,23 +1,16 @@
 import { useLocation } from "../../hooks/useLocation";
-import { useNavigate } from "../../hooks/useNavigate";
+import ClientLink from "../routing/ClientLink";
 
 function NavBar() {
-    const navigate = useNavigate();
     const location = useLocation();
-    const handleClick = (e: React.MouseEvent, route: string) => {
-        e.preventDefault();
-        navigate(route);
-    }
 
     return (
         <>
             {location !== "/login" && (
-                <nav>
-                    <ul>
-                        <li><a href="/profile" onClick={e => handleClick(e, "/profile")}>Profile</a></li>
-                        <li><a href="/dashboard" onClick={e => handleClick(e, "/dashboard")}>Dashboard</a></li>
-                        <li><a href="/login" onClick={e => handleClick(e, "/login")}>Login</a></li>
-                    </ul>
+                <nav className="d-flex d-flex-row justify-content-center align-items-center gap-2">
+                     <ClientLink to="/profile">Profile</ClientLink>
+                     <ClientLink to="/dashboard">Dashboard</ClientLink>
+                     <ClientLink to="/login" onClick={() => localStorage.clear()}>Logout</ClientLink>
                 </nav>
             )}
         </>

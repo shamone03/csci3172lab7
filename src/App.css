@@ -1,0 +1,52 @@
+.d-flex {
+    display: flex;
+}
+
+.d-flex-row {
+    flex-direction: row;
+}
+
+.d-flex-col {
+    flex-direction: column;
+}
+
+.gap-1 {
+    gap: 1em;
+}
+
+.gap-2 {
+    gap: 2em;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    width: 60px;
+	height: 35px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    text-align: center;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.btn:hover {
+    box-shadow: 3px 3px grey;
+    transition: none;
+}
+
+.btn:active {
+    box-shadow: none;
+}
+

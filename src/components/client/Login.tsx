@@ -21,21 +21,22 @@ function Login() {
     return (
         <>
             <h1>Login</h1>
-            <form action="post" onSubmit={(e) => handleSubmit(e)}>
-                <input type="text" name="firstName" id="firstName" />
+            <form id="login-form" action="post" onSubmit={(e) => handleSubmit(e)} className="d-flex d-flex-col gap-1 align-items-center">
                 <label htmlFor="firstName">First Name</label>
-                <input type="text" name="lastName" id="lastName" />
+                <input type="text" name="firstName" id="firstName" />
                 <label htmlFor="lastName">Last Name</label>
-                <input name="email" id="email" />
+                <input type="text" name="lastName" id="lastName" />
                 <label htmlFor="email">Email</label>
-                <input type="password" name="password" id="password" />
+                <input name="email" id="email" />
                 <label htmlFor="password">Password</label>
+                <input type="password" name="password" id="password" />
+                <label htmlFor="season">Season</label>
                 <select name="season" id="season">
                     <option value="fall">Fall</option>
                     <option value="winter">Winter</option>
                     <option value="summer">Summer</option>
                 </select>
-                <button type="submit" name="intent" value="submission">Submit</button>
+                <button type="submit" className="btn">Submit</button>
             </form>
             <div>
                 <p>{error}</p>

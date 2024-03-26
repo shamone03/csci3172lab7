@@ -1,4 +1,4 @@
-export function profileLoader(): Result<UserInfo> {
+export function userLoader(): Result<UserInfo> {
     const info: UserInfo = {
         firstName: localStorage.getItem("firstName") as string,
         lastName: localStorage.getItem("lastName") as string,

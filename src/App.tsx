@@ -3,9 +3,10 @@ import Login from "./components/client/Login";
 import Profile from "./components/client/Profile";
 import Router from "./components/routing/Router";
 import { loginAction } from "./controllers/login";
-import { profileLoader } from "./controllers/profile";
+import { userLoader } from "./controllers/profile";
 import Outlet from "./components/routing/Outlet";
 import NavBar from "./components/client/NavBar";
+import "./App.css"
 
 function App() {
 
@@ -13,11 +14,12 @@ function App() {
         {
             route: /^(\/profile|\/)$/,
             element: <Profile key={0} />,
-            loader: profileLoader
+            loader: userLoader
         },
         {
             route: /^\/dashboard$/,
             element: <Dashboard key={1} />,
+            loader: userLoader
         },
         {
             route: /^\/login$/,
